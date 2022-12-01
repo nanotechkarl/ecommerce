@@ -1,4 +1,5 @@
 import {ApplicationConfig, EcommerceApplication} from './application';
+require('dotenv').config();
 
 export * from './application';
 

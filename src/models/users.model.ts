@@ -5,23 +5,43 @@ export class Users extends Entity {
   @property({
     type: 'string',
     id: true,
-    generated: false,
-    required: true,
+    mongodb: {dataType: 'ObjectId'},
   })
-  id: string;
+  id?: string;
 
   @property({
     type: 'string',
     required: true,
+    jsonSchema: {
+      format: 'email',
+    },
   })
   email: string;
 
   @property({
     type: 'string',
     required: true,
+    hidden: true,
   })
   password: string;
 
+  @property({
+    type: 'string',
+    required: true,
+  })
+  name: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  address: string;
+
+  @property({
+    type: 'array',
+    itemType: 'string',
+  })
+  permissions: string[];
 
   constructor(data?: Partial<Users>) {
     super(data);
